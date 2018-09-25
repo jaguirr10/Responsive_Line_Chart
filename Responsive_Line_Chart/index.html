@@ -1,0 +1,103 @@
+
+<!DOCTYPE html><html lang='en' >
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title> Responsive Line Chart Demo</title>
+
+<meta charset='UTF-8'>
+
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+body 
+{
+
+height: 100vh;
+
+background: #F7F8F8;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #ACBB78, #F7F8F8);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #ACBB78, #F7F8F8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+overflow-y:hidden;
+
+
+overflow-x:hidden;
+
+}
+
+.container {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.p {
+  text-align: center;
+  font-size: 22px;
+ margin-top: 24px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+
+h2{
+  
+   text-align:center;
+   
+   font-family: 'Press Start 2P', cursive;
+   
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+  <h2> Responsive Line Chart </h2>
+  <div>
+    <canvas id="canvas"></canvas>
+  </div>
+</div>
+
+<p class="p">Powered by Chart.js </p>
+</script><script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+<script>
+
+// By Juan Aguirre
+
+var lineChartData = {
+    labels: ["DataSet 1", "DataSet 2", "DataSet 3", "DataSet 4", "DataSet  5 ", "DataSet 6", "DataSet 7"],
+    datasets: [{
+        fillColor: "rgba(220,220,220,0)",
+        strokeColor: "rgba(220,180,0,1)",
+        pointColor: "rgba(220,180,0,1)",
+        data: [10, 30, 90, 20, 40, 10, 60] },
+    {
+        fillColor: "rgba(151,187,205,0)",
+        strokeColor: "rgba(151,187,20,1)",
+        pointColor: "rgba(151,187,205,1)",
+        data: [60, 10, 40, 30, 90, 30, 20] }] };
+
+
+
+
+Chart.defaults.global.animationSteps = 50;
+Chart.defaults.global.tooltipYPadding = 16;
+Chart.defaults.global.tooltipCornerRadius = 0;
+Chart.defaults.global.tooltipTitleFontStyle = "normal";
+Chart.defaults.global.tooltipFillColor = "rgba(0,160,0,0.8)";
+Chart.defaults.global.animationEasing = "easeOutBounce";
+Chart.defaults.global.responsive = true;
+Chart.defaults.global.scaleLineColor = "black";
+Chart.defaults.global.scaleFontSize = 16;
+
+var ctx = document.getElementById("canvas").getContext("2d");
+var LineChartDemo = new Chart(ctx).Line(lineChartData, {
+    pointDotRadius: 10,
+    bezierCurve: false,
+    scaleShowVerticalLines: false,
+    scaleGridLineColor: "black" });
+
+</script>
+</body></html>
